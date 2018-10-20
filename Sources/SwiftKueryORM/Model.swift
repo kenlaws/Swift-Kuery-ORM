@@ -347,7 +347,7 @@ public extension Model {
     Self.executeQuery(query: query, parameters: parameters, using: db, onCompletion)
   }
 
-  internal func executeQuery(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (Self?, RequestError?) -> Void ) {
+  func executeQuery(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (Self?, RequestError?) -> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
@@ -377,7 +377,7 @@ public extension Model {
     }
   }
 
-  internal func executeQuery<I: Identifier>(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (I?, Self?, RequestError?) -> Void ) {
+  func executeQuery<I: Identifier>(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (I?, Self?, RequestError?) -> Void ) {
 
     var connection: Connection
     do {
@@ -435,7 +435,7 @@ public extension Model {
     }
   }
 
-  internal static func executeQuery(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (Self?, RequestError?) -> Void ) {
+  static func executeQuery(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (Self?, RequestError?) -> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
@@ -482,7 +482,7 @@ public extension Model {
     }
   }
 
-  internal static func executeQuery<I: Identifier>(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (I?, Self?, RequestError?) -> Void ) {
+  static func executeQuery<I: Identifier>(query: Query, parameters: [Any?], using db: Database? = nil, _ onCompletion: @escaping (I?, Self?, RequestError?) -> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
@@ -549,7 +549,7 @@ public extension Model {
 
   /// - Parameter using: Optional Database to use
   /// - Returns: A tuple ([Model], RequestError)
-  internal static func executeQuery(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping ([Self]?, RequestError?)-> Void ) {
+  static func executeQuery(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping ([Self]?, RequestError?)-> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
@@ -616,7 +616,7 @@ public extension Model {
 
   /// - Parameter using: Optional Database to use
   /// - Returns: A tuple ([Model], RequestError)
-  internal static func executeQuery<I: Identifier>(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping ([(I, Self)]?, RequestError?) -> Void ) {
+  static func executeQuery<I: Identifier>(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping ([(I, Self)]?, RequestError?) -> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
@@ -698,7 +698,7 @@ public extension Model {
   /// - Parameter using: Optional Database to use
   /// - Returns: An optional RequestError
 
-  internal static func executeQuery(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping (RequestError?) -> Void ) {
+  static func executeQuery(query: Query, parameters: [Any?]? = nil, using db: Database? = nil, _ onCompletion: @escaping (RequestError?) -> Void ) {
     var connection: Connection
     do {
       connection = try Self.getConnection(using: db)
